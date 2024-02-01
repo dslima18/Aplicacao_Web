@@ -4,7 +4,7 @@
     <ul>
         {% if topics %}
             {% for topic in topics %}
-                <li>{{ topic }}</li>
+                <li><a href="{% url 'learning_logs:topic' topic.id %}">{{ topic }}</a></li>
             {% endfor %}
         {% else %} 
             <li>Nenhum tópico adicionado ainda.</li>

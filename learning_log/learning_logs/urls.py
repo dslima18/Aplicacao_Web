@@ -7,4 +7,6 @@ urlpatterns = [
     path('', views.index, name='index'),
     # Mostra todos os assuntos
     path('topics/', views.topics, name='topics'),
+    # Página de detalhes para um único assunto.
+    path('topics(?P<topic_id>\d+)', views.topic, name='topic'),
 ]
