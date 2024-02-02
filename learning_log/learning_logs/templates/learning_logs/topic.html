@@ -2,6 +2,7 @@
 {% block content %}
     <p>Tópico: {{ topic}}</p>
         <p>Entradas:</p>
+        <p> <a href="{% url 'learning_logs:new_entry' topic.id %}">Adicionar nova entrada:</a></p>
         <ul>
             {% if topic %}
                 {% for entry in entries %}
