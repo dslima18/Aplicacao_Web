@@ -1,6 +1,8 @@
 """Define padrões de URL para learning_logs"""
 
 from django.urls import include, path, re_path
+
+app_name = 'learning_logs'
 from . import views
 urlpatterns = [
     # Página inicial
