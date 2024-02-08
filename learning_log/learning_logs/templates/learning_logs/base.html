@@ -4,6 +4,7 @@
     Olá, {{ user.username }},
     <a href="{% url 'users:logout' %}"> Sair</a>
 {% else %}
+    <a href="{% url 'users:register' %}">Registrar</a>
     <a href="{% url 'users:login' %}"> Logar </a>
 {% endif %}
 </p>
