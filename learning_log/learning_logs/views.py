@@ -13,7 +13,7 @@ def index(request):
 @login_required
 def topics(request):
     """Mostra todos os assuntos."""
-    topics = Topic.objects.order_by('date_added')
+    topics = Topic.objects.filter(owner=request.user).order_by('date_added')
     context = {'topics':topics}
     return render(request, 'learning_logs/topics.html', context)
 
@@ -38,9 +38,11 @@ def new_topic(request):
         #  Dados de POST submetidos; processa os dados
         form = TopicForm(request.POST)
     if form.is_valid():
-        form.save()
+        new_topic = form.save(commit=False)
+        new_topic.owner = request.user
+        new_topic.save()
         return HttpResponseRedirect(reverse('learning_logs:topics'))
-    context = {'form':form}
+    context = {'form':form, 'topic':None}
     return render(request,'learning_logs/new_topic.html', context)
 
 @login_required
@@ -66,6 +68,8 @@ def edit_entry(request, entry_id):
     """Edita uma entrada existente."""
     entry = Entry.objects.get(id=entry_id)
     topic = entry.topic
+    if topic.owner != request.user:
+        raise Http404
     if request.method != 'POST':
         # Requisição inicial; preenche previamente o formulário com a entrada atual
         form = EntryForm(instance=entry)
