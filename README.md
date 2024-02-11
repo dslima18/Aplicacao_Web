@@ -10,8 +10,6 @@ Bem-vindo ao Registro de Aprendizados! Este projeto Django permite que você cri
 
 - **Descrição Detalhada:** Forneça informações detalhadas sobre cada tópico, incluindo uma descrição abrangente.
 
-- **Gerenciamento de Assuntos:** Associe assuntos específicos a cada tópico para organizar seus aprendizados de maneira eficiente.
-
 ## Como Executar Localmente
 
 1. **Clone o Repositório:**
