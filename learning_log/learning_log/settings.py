@@ -136,4 +136,18 @@ LOGIN_URL = 'users:login'
 BOOTSTRAP3 = {
     'include_jquert' : True
 }
+#
 
+# Configurações para o Heroku 
+if os.getcwd() == '/app':  
+    import dj_database_url 
+DATABASES = {
+'default': dj_database_url.config(default='postgres://localhost')
+}
+# Honra o cabeçalho 'X-Forwarded-Proto' para request.is_secure() 
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# Cabeçalhos para permitir todos os hosts x ALLOWED_HOSTS = ['*']
+# Configuração de recursos estáticos y BASE_DIR =
+os.path.dirname(os.path.abspath(__file__)) 
+STATIC_ROOT = 'staticfiles'
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
