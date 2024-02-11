@@ -26,11 +26,11 @@ Ative o Ambiente Virtual:
 
 No Windows:
 
-venv\Scripts\activate
+ll_env\Scripts\activate
 
 No Linux/Mac:
 
-source venv/bin/activate
+source ll_env/bin/activate
 
 Instale as Dependências:
 
